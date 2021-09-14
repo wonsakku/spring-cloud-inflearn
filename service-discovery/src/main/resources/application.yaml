@@ -1,0 +1,7 @@
+server:
+  port: 8761
+
+spring:  application:    name: sservice-discovery
+    
+eureka:  client:    register-with-eureka: false #클라이언트로 등록 X, 서버로써만 작동하도록
+    fetch-registry: false
