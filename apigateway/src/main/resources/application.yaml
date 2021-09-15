@@ -15,15 +15,11 @@ spring:  application:    name: api-gateway
         args:
           baseMessage: Spring Cloud Gateway GlobalFilter
           preLogger: true
-          postLogger: true      routes:      - id: user-service-01
-        #uri: http://127.0.0.1:8081
-        uri: lb://USERSERVICE-01
+          postLogger: true      routes:      - id: USER-SERVICE
+        uri: lb://USER-SERVICE
         predicates:
-        - Path=/userservice-01/**        filters:
-        - AddRequestHeader=first-request, first-request-header2        - AddResponseHeader=first-response, first-response-header2
-        - name: CustomFilter
-        
-      - id: userservice-02
+        - Path=/user-service/**
+              - id: userservice-02
         #uri: http://127.0.0.1:8082
         uri: lb://USERSERVICE-02
         predicates:        - Path=/userservice-02/**        filters:

@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 @RestController
-@RequestMapping("/userservice-01")
+@RequestMapping("/user-service")
 public class UserController {
 
 
@@ -36,7 +36,7 @@ public class UserController {
 	
 	@GetMapping("/health_check")
 	public String status() {
-		return "It' Working in User Service01";
+		return String.format("It' Working in User Service on PORT %s", env.getProperty("local.server.port"));
 	}
 	
 	@GetMapping("/welcome")
