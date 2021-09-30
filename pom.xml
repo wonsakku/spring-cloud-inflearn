@@ -20,6 +20,7 @@
 		<module>apigateway</module>
 		<module>userservice-01</module>
 		<module>userservice-02</module>
+		<module>catalog-service</module>
 		<module>service-discovery</module>
 	</modules>
 </project>
