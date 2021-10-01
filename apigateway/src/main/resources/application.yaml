@@ -23,6 +23,10 @@ spring:  application:    name: api-gateway
         uri: lb://CATALOG-SERVICE
         predicates:
         - Path=/catalog-service/**
+      - id: order-service
+        uri: lb://ORDER-SERVICE
+        predicates:
+        - Path=/order-service/**
               - id: userservice-02
         #uri: http://127.0.0.1:8082
         uri: lb://USERSERVICE-02
