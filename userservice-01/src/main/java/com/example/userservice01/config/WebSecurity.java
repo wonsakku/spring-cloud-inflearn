@@ -15,9 +15,21 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		
 		http.authorizeRequests()
-				.antMatchers("/users/**").permitAll();
+//				.antMatchers("/users/**").permitAll();
+				.antMatchers("/**")
+				.hasIpAddress("127.0.0.1")
+				.and()
+				.addFilter(getAuthenticationFilter())
+				;
+				
 		
 		http.headers().frameOptions().disable(); // h2 프레임 깨지지 않게.
+	}
+
+	private AuthenticationFilter getAuthenticationFilter() throws Exception {
+		AuthenticationFilter authenticationFilter = new AuthenticationFilter();
+		authenticationFilter.setAuthenticationManager(authenticationManager());
+		return authenticationFilter;
 	}
 	
 	
