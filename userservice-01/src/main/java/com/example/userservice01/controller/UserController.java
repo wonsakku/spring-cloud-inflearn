@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 @RestController
-@RequestMapping("/user-service")
+//@RequestMapping("/user-service")
 public class UserController {
 
 
