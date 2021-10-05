@@ -22,3 +22,5 @@ eureka:  client:    register-with-eureka: true
     
 greeting:
   message: Welcome to the Simple E-commerce.
+  
+logging:  level:    com.example.userservice01: DEBUG
