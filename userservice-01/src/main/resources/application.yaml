@@ -24,3 +24,20 @@ greeting:
   message: Welcome to the Simple E-commerce.
   
 logging:  level:    com.example.userservice01: DEBUG
+
+    
+token:
+  expiration_time: 86400000 # 24hr * 60min * 60sec * 1000millis
+  secret: user_token
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
