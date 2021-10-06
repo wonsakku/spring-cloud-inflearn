@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.userservice01.dto.UserDto;
@@ -41,7 +40,13 @@ public class UserController {
 	
 	@GetMapping("/health_check")
 	public String status() {
-		return String.format("It' Working in User Service on PORT %s", env.getProperty("local.server.port"));
+		return String.format("It' Working in User Service \n" 
+				 + "port(local.server.port) -> " + env.getProperty("local.server.port") + "\n"
+				 + "port(server.port) -> " + env.getProperty("server.port") + "\n"
+				 + "token secret -> " + env.getProperty("token.secret") + "\n"
+				 + "token expiration time -> " + env.getProperty("token.expiration_time") + "\n"
+				 + "gateway ip -> " + env.getProperty("gateway.ip")
+				);
 	}
 	
 	@GetMapping("/welcome")
