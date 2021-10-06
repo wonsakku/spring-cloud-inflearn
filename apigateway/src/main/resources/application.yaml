@@ -26,6 +26,7 @@ spring:  application:    name: api-gateway
         - Method=POST
         filters:        - RemoveRequestHeader=Cookie
         - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+        
       - id: USER-SERVICE
         uri: lb://USER-SERVICE
         predicates:
@@ -33,6 +34,7 @@ spring:  application:    name: api-gateway
         - Method=POST
         filters:        - RemoveRequestHeader=Cookie
         - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+        
       - id: USER-SERVICE
         uri: lb://USER-SERVICE
         predicates:
@@ -40,6 +42,8 @@ spring:  application:    name: api-gateway
         - Method=GET
         filters:        - RemoveRequestHeader=Cookie
         - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+        - AuthorizationHeaderFilter
+        
         
       - id: catalog-service
         uri: lb://CATALOG-SERVICE
@@ -61,4 +65,9 @@ spring:  application:    name: api-gateway
             baseMessage: Hello World!
             preLogger: true
             postLogger: false
-                      
+            
+            
+token:
+  secret: user_token
+    
+              
