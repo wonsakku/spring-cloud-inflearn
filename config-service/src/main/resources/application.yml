@@ -4,9 +4,14 @@ server:
 spring:
   application:
     name: config-service
+  profiles:
+    active: native
   cloud:
     config:
       server:
+        native:
+#          search-locations: ${user.home}/Desktop/Work/native/file-repo
+          search-locations: C:\wonsik\etc\class\native-file-repo
         git:
           uri: https://github.com/wonsakku/spring-cloud-inflearn-config.git
 #          username: [your username]
