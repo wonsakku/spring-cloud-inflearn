@@ -8,7 +8,14 @@ spring:  application:    name: USER-SERVICE
       path: /h2-console
   datasource:    driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
-      
+          
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    
+
 eureka:  client:    register-with-eureka: true
     fetch-registry: true
 #    register-with-eureka: false
@@ -25,14 +32,15 @@ greeting:
   
 logging:  level:    com.example.userservice01: DEBUG
 
+
+
     
-management:  endpoints:    web:      exposure:        include: refresh, health, beans
+management:  endpoints:    web:      exposure:        include: refresh, health, beans, busrefresh
     
     
 #token:
 #  expiration_time: 86400000 # 24hr * 60min * 60sec * 1000millis
 #  secret: user_token
-    
     
     
     
